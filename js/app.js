@@ -11,6 +11,12 @@ document.getElementById('addButton').addEventListener('click', function(event){
 var addButton = document.getElementById('addButton');
 addButton.onclick = addEmployee;
 
+// var limitEmployees = document.getElementsByClassName('limitinput')[0];
+// limitEmployees.onclick = function limitEmployees(){
+// 	limit = Number(limitEmployees.value);
+// 	console.log(limit);
+// }
+
 function openForm(){
     document.getElementById('addEmployee').style.backgroundColor = "#7aafc1"
     var form = document.getElementsByClassName('addform');
@@ -32,17 +38,28 @@ function addEmployee(){
 	var list = document.getElementById('employeeList');
 	var listItem = document.createElement('li');
 	var avSalary = Number(document.getElementsByClassName('averageSalary')[0].innerHTML);
-
-    var limit = Number(document.getElementsByClassName('limitinput')[0].value);
-    if (limit <= 0){
-    	alert('The limit of employees is not valid')
-    }
+    
+    var defaultLimit = 10;
+    var limit = document.getElementsByClassName('limitinput')[0].value;
+    if (Number(limit) <= 0 && limit){
+    	alert('The limit of employees is not valid');
+        var stopAdd = true;}
+    	else if (!limit){
+    		defaultLimit = 10;
+    		// alert('The limit of empldsfdgfsfgdoyees is not valid')
+    	}
+    	else{
+    		defaultLimit = limit;
+    	}
     
     if (avSalary >= 2000){
     	alert('Sorry but you can\'t add the new employee cause the average salary has already reached $2000')
     }
-    else if (document.getElementsByClassName('employeeFirstName').length > limit-1) {
-        alert('Sorry, the number of employees is limited by '+ limit)
+    else if (stopAdd){
+    	alert("Please, enter the correct number to limit the list of employees")
+    }
+    else if (document.getElementsByClassName('employeeFirstName').length > defaultLimit-1) {
+        alert('Sorry, the number of employees is limited by '+ defaultLimit)
     }
     else if (inputs[0].value.length < 1){
     	alert('Please, enter the correct first name')
