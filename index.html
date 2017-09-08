@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<title></title>
+	<title>List of Employees</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
@@ -12,6 +12,7 @@
         <h3>List of Employees</h3>
         <p>Number of employees: <span class="numberEmployees">1</span></p>
         <p>Average salary: &dollar; <span class="averageSalary">1000</span></p>
+        <p>Limit of employees <input class="limitinput" type="number" name="limitOfEmployees"></p>
     </div>
 	<ul id="employeeList">
         <li>
@@ -27,11 +28,11 @@
     </div>
     <div class="form-cnt">
       <form class="addform">
-    	<input type="text" name="firstName" placeholder="first name">
-    	<input type="text" name="lastName" placeholder="last name">
-    	<input type="text" name="salary" placeholder="amount of salary">
-    	<input type="text" name="position" placeholder="position">
-    	<input id="addButton" type="submit" value="Add employee">
+    	<input class="forminput" type="text" name="firstName" placeholder="first name">
+    	<input class="forminput" type="text" name="lastName" placeholder="last name">
+    	<input class="forminput" type="text" name="salary" placeholder="amount of salary">
+    	<input class="forminput" type="text" name="position" placeholder="position">
+    	<input class="forminput" id="addButton" type="submit" value="Add employee">
       </form>
     </div>
   </div>

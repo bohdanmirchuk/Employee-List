@@ -1,12 +1,37 @@
-
+body{
+	color: #04212b;
+	font-family: Helvetica;
+}
+.cnt {
+	background-color: #b7ecff;
+	width: 900px;
+	margin: 0 auto;
+	padding: 10px;
+	border: 2px solid #0391c4;
+}
 
 p {
 	display: inline;
 	padding: 10px;
+	font-style: italic;
+}
+.limitinput {
+	width: 35px;
+}
+#employeeList {
+	list-style: none;
 }
 #employeeList li span {
 	display: inline-block;
 	padding: 0 5px;
+}
+#addEmployee, #addButton{
+	background-color: #084459;
+	color: #fff;
+}
+.hideButton{
+	background-color: #7aafc1;
+	color: #fff;
 }
 .addform, .hideButton{
 	display: none;

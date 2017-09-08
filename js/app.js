@@ -12,6 +12,7 @@ var addButton = document.getElementById('addButton');
 addButton.onclick = addEmployee;
 
 function openForm(){
+    document.getElementById('addEmployee').style.backgroundColor = "#7aafc1"
     var form = document.getElementsByClassName('addform');
     form[0].classList.add('visible');
     var hideButton = document.getElementsByClassName('hideButton');
@@ -19,6 +20,7 @@ function openForm(){
 }
 
 function closeForm(){
+    document.getElementById('addEmployee').style.backgroundColor = "#084459"
     var form = document.getElementsByClassName('addform');
     form[0].classList.remove('visible');
     var hideButton = document.getElementsByClassName('hideButton');
@@ -26,12 +28,21 @@ function closeForm(){
 }
 
 function addEmployee(){
-	var inputs = document.getElementsByTagName('input');
+	var inputs = document.getElementsByClassName('forminput');
 	var list = document.getElementById('employeeList');
 	var listItem = document.createElement('li');
-	
-    if (document.getElementsByClassName('employeeFirstName').length > 9) {
-        alert('Sorry, the number of employees is limited by 10')
+	var avSalary = Number(document.getElementsByClassName('averageSalary')[0].innerHTML);
+
+    var limit = Number(document.getElementsByClassName('limitinput')[0].value);
+    if (limit <= 0){
+    	alert('The limit of employees is not valid')
+    }
+    
+    if (avSalary >= 2000){
+    	alert('Sorry but you can\'t add the new employee cause the average salary has already reached $2000')
+    }
+    else if (document.getElementsByClassName('employeeFirstName').length > limit-1) {
+        alert('Sorry, the number of employees is limited by '+ limit)
     }
     else if (inputs[0].value.length < 1){
     	alert('Please, enter the correct first name')
@@ -39,13 +50,20 @@ function addEmployee(){
     else if (inputs[1].value.length < 1){
     	alert('Please, enter the correct last name')
     }
+    // else if (for(var j = 0; j < firstName.length; j++){
+    // 	firstName[j].innerHTML == inputs[0] && lastName[j].innerHTML == inputs[1]}){
+    // 		alert(inputs[0] + ' ' + inputs[1] + ' is already in the list. Add another one.')
+    // 	}
     else if (!isFinite(inputs[2].value) || Number(inputs[2].value)<0 || inputs[2].value.length < 1 || inputs[2].value.match(' ')){
     	alert('Please, enter the correct salary')
     }
     else if (inputs[3].value.length < 1){
     	alert('Please, enter the correct position')
     }
-    else {
+    else if (dublicator()){
+    	alert(inputs[0].value + ' ' + inputs[1].value + ' is already in the list. Add another one.')
+    }
+    else{
 
 	span1 = document.createElement('span');
 	span1.className = 'employeeFirstName';
@@ -90,4 +108,16 @@ function NumberAndAvSalary (){
 	}
 	var avSalary = totalSalary / totalNumber;
 	document.getElementsByClassName('averageSalary')[0].innerHTML = avSalary.toFixed(2);
+}
+
+function dublicator(){
+	var firstName = document.getElementsByClassName('employeeFirstName');
+	var lastName = document.getElementsByClassName('employeeLastName');
+	var inputs = document.getElementsByClassName('forminput');
+	for(var j = 0; j < firstName.length; j++){
+    	if(firstName[j].innerHTML.toLowerCase() == inputs[0].value.toLowerCase() && lastName[j].innerHTML.toLowerCase() == inputs[1].value.toLowerCase()){
+    		return true 
+    	}
+    }
+
 }
