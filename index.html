@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+  <div class="cnt">  
+    <div class="head-cnt">
+        <h3>List of Employees</h3>
+        <p>Number of employees: <span class="numberEmployees">1</span></p>
+        <p>Average salary: &dollar; <span class="averageSalary">1000</span></p>
+    </div>
+	<ul id="employeeList">
+        <li>
+            <span class="employeeFirstName">John</span>
+            <span class="employeeLastName">Doe</span>
+            <span class="employeeSalary">&dollar; 1000</span>
+            <span class="employeePosition">Manager</span>
+        </li>
+    </ul>
+    <div>
+        <button id="addEmployee">Add New employee</button>
+        <button class="hideButton">hide</button>
+    </div>
+    <div class="form-cnt">
+      <form class="addform">
+    	<input type="text" name="firstName" placeholder="first name">
+    	<input type="text" name="lastName" placeholder="last name">
+    	<input type="text" name="salary" placeholder="amount of salary">
+    	<input type="text" name="position" placeholder="position">
+    	<input id="addButton" type="submit" value="Add employee">
+      </form>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/app.js"></script>
+</body>
+</html>

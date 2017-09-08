@@ -1,0 +1,16 @@
+
+
+p {
+	display: inline;
+	padding: 10px;
+}
+#employeeList li span {
+	display: inline-block;
+	padding: 0 5px;
+}
+.addform, .hideButton{
+	display: none;
+}
+.visible {
+	display: inline;
+}
